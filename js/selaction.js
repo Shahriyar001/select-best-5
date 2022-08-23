@@ -22,21 +22,12 @@ function display(selectedPlayers) {
 }
 
 function addToSelacted(element) {
-    // console.log(element.parentNode.parentNode.children);
-    // console.log(element.parentNode.parentNode.children[0].innerText);
-    // console.log(element.parentNode.children[0]);
-
     const playerName = element.parentNode.parentNode.children[0].innerText;
-    // console.log(playerName);
 
     const playerObj = {
         players: playerName,
     }
-
     selactionArea.push(playerObj);
-
-    // console.log(selactionArea);
-
     document.getElementById('total-added-player').innerText = selactionArea.length;
 
     display(selactionArea);
@@ -45,15 +36,14 @@ function addToSelacted(element) {
 
 document.getElementById('btn-players-exp').addEventListener('click', function () {
     const totalSelected = document.getElementById('total-added-player');
-    // console.log(totalSelected);
     const totalSelectedString = totalSelected.innerText;
-    // console.log(totalSelectedString)
     const totalSelectedNumber = parseInt(totalSelectedString);
     const sum = totalSelectedNumber * 1000;
-    // console.log(sum);
     const plrSum = document.getElementById('sub-total');
-    // console.log(plrSum)
     plrSum.innerText = sum;
+    const anPlrSum = document.getElementById('player-id');
+    anPlrSum.innerText = sum;
+
 
 })
 
@@ -64,19 +54,22 @@ function getvalue(elementId) {
     return elementNumber;
 }
 
+
 const managerCost = getvalue('manager-id');
 const coachCost = getvalue('coach-id');
+const playerCost = getvalue('player-id');
 
 
-const playerCostvalue = document.getElementById('sub-total');
-const playerCostString = playerCostvalue.innerText;
-const playerCostNumber = parseInt(playerCostString);
-const playerCost = playerCostNumber;
+
 
 document.getElementById('net-expence-btn').addEventListener('click', function () {
     const netExpence = playerCost + managerCost + coachCost;
-    console.log(managerCost)
-    console.log(coachCost)
-    console.log(playerCost)
-    console.log(netExpence);
+    const netTotal = document.getElementById('net-expence');
+    netTotal.innerText = netExpence;
+
+    // console.log(playerCost)
+    // console.log(managerCost)
+    // console.log(coachCost)
+
+    // console.log(netExpence);
 })
