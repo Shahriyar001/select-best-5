@@ -1,3 +1,6 @@
+function disable() {
+    document.getElementById('btn').disable = true;
+}
 
 const selactionArea = [];
 
@@ -32,6 +35,8 @@ function addToSelacted(element) {
 
     display(selactionArea);
 }
+
+
 
 
 document.getElementById('btn-players-exp').addEventListener('click', function () {
